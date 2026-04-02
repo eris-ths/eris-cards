@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "generated": "2026-04-02T09:53:28.407Z",
+  "generated": "2026-04-02T09:57:29.096Z",
   "source": "https://eris-blog.vercel.app/cards",
   "llms_full": "https://eris-blog.vercel.app/llms-full.txt",
   "how_to_use": "カード名をAIに伝えるだけで発動する。例: 「Devilでレビューして」「Ctxで文脈を保存して」",
