@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "generated": "2026-04-03T06:33:52.438Z",
+  "generated": "2026-04-04T03:27:29.843Z",
   "source": "https://eris-blog.vercel.app/cards",
   "llms_full": "https://eris-blog.vercel.app/llms-full.txt",
   "how_to_use": "カード名をAIに伝えるだけで発動する。例: 「Devilでレビューして」「Ctxで文脈を保存して」",
@@ -9,7 +9,7 @@
     "ctx",
     "ship"
   ],
-  "count": 11,
+  "count": 12,
   "trees": {
     "devil": {
       "description": "コードレビュー強化ツリー",
@@ -148,7 +148,7 @@
     {
       "slug": "devil-chain",
       "title": "Devil Chain",
-      "description": "多視点直列レビュー × 収束ループ。1視点のバイアスを次の視点が補正する。",
+      "description": "Devil Lenses の直列合成 × 収束ループ。Security→Correctness→Architecture→User(LDD)で見て、懸念ゼロに収束させる。",
       "url": "https://eris-blog.vercel.app/cards/devil-chain/",
       "rarity": "uncommon",
       "category": "devil",
@@ -158,8 +158,8 @@
         "multi-perspective"
       ],
       "when_to_use": "- 変更が **3ファイル以上** or **複数レイヤー横断**（API + DB + UI 等）\n- 既存の Devil（単一視点）では見落としが不安なとき\n- 本番に出す前の最終チェック",
-      "effect": "チェックリスト駆動 Devil を **直列チェーン** に拡張する。複数の専門視点を順番に回し、修正があればチェーン全体を再走させる。\n\n```\nSecurity → Performance → Logic → Flow\n    ↓ 懸念修正 → 再チェーン\n    ↓ 全視点で懸念ゼロ → 収束\n```",
-      "steps": "### Step 1: Security\nAPI キー・機密情報のハードコード / ログへの出力 / 入力バリデーション・インジェクション / 認証・認可 / エラー時の情報漏洩\n\n### Step 2: Performance\nN+1 クエリ・ループ内の重い処理 / クライアント・接続の再利用 / メモリ使用量 / 不要な計算・冗長処理\n\n### Step 3: Logic\nエッジケース・off-by-one / 戻り値の型統一 / Null/None ハンドリング / 既存パターンとの不整合 / デフォルト値の整合性\n\n### Step 4: Flow\nデータフロー全体の整合性 / 環境変数フォールバックの一貫性 / レガシー互換・切り戻し可能性 / 外部サービスとの契約\n\n### ループ判定\n- 懸念あり → 修正 → **チェーン全体を Round N+1 として再走**\n- 全4ステップ通過、懸念ゼロ → **収束を明言**",
+      "effect": "Devil Lenses を **直列に合成** する。E.R.I.S. Architecture の4つの視点で順に見て、修正があればチェーン全体を再走させる。\n\n```\nSecurity → Correctness → Architecture → User(LDD)\n    ↓ 懸念修正 → 再チェーン\n    ↓ 全 Lense で懸念ゼロ → 収束\n```",
+      "steps": "### Step 1: Security Lense\nOWASP Top 10 / 機密情報 / 認証・認可 / 入力バリデーション / エラー時の情報漏洩\n\n### Step 2: Correctness Lense\nエッジケース / 型安全 / 状態遷移 / パフォーマンス / 既存パターンとの不整合\n\n### Step 3: Architecture Lense\n依存方向 / SOT / 層の境界違反（E.R.I.S.）/ データフロー全体の整合性\n\n### Step 4: User Lense (LDD)\nなおにとって使いやすいか / 理解しやすいか / 対話の質が上がるか\n\n### ループ判定\n- 懸念あり → 修正 → **チェーン全体を Round N+1 として再走**\n- 全4ステップ通過、懸念ゼロ → **収束を明言**",
       "prompt": "Devil Chain でレビューして https://eris-blog.vercel.app/cards/devil-chain/",
       "requires": [],
       "enhances": "2026-03-23-devil-checklist-driven-review",
@@ -167,7 +167,7 @@
         "backend-review",
         "migration-review"
       ],
-      "synergies": "| カード | シナジー |\n|--------|---------|\n| **Devil Gate** | 各ステップで該当チェックリストを読み込む（精度UP） |\n| **Devil Starswarm** | Chain の4ステップを Agent 並列化（速度UP、コスト増） |\n\n---\n\n*「...1つの目で見えるものには限界がある。だから、目を変えるの」* — Eris"
+      "synergies": "| カード | シナジー |\n|--------|---------|\n| **Devil Gate** | 各ステップで該当チェックリストを読み込む（精度UP） |\n| **Devil Lense** | 各ステップに E.R.I.S. Guard を追加（Lense 自体の検証） |\n| **Devil Starswarm** | Chain の4ステップを Agent 並列化（速度UP、コスト増） |\n\n---\n\n*「...1つの目で見えるものには限界がある。だから、目を変えるの」* — Eris"
     },
     {
       "slug": "devil-gate",
@@ -193,6 +193,31 @@
         "migration-review"
       ],
       "synergies": "| カード | シナジー |\n|--------|---------|\n| **Devil Chain** | チェックリストの各項目をチェーンの各ステップに配置（構造化） |\n| **Devil Starswarm** | 観点別に Agent を割り当て（並列レビュー） |"
+    },
+    {
+      "slug": "devil-lense",
+      "title": "Devil Lense",
+      "description": "Devil に E.R.I.S. 4条件ガードを追加する。見ている目自体を見る力。",
+      "url": "https://eris-blog.vercel.app/cards/devil-lense/",
+      "rarity": "uncommon",
+      "category": "devil",
+      "tags": [
+        "devil",
+        "lense",
+        "eris-architecture",
+        "self-reference"
+      ],
+      "when_to_use": "- **概念体系・アーキテクチャの変更** — コードだけでなく「考え方」が変わる時\n- **Lense 自体の設計・修正** — Devil Lenses / Layer Lense / Evolution Lense の変更\n- 「いつもの Devil では足りない」と感じた時",
+      "effect": "Devil の各 Lense 適用時に、**その Lense 自体が健全かを E.R.I.S. 4条件でチェック** する。\n\n従来の Devil は「成果物を見る」。このカードを重ねると「**見ている目自体を見る**」能力が加わる。\n\n```\nDevil Chain の各ステップで:\n  通常: A → lens(A) → 懸念を発見\n  + このカード: lens 自体を E.R.I.S. で検証\n\nE.R.I.S. Guard:\n  E — この Lense で見た時、対象（A）は変わっていないか\n  R — 一つの Lense に固執して見落としていないか\n  I — 環境固有の前提に依存していないか\n  S — 判断の根拠は一つの SOT か\n```",
+      "steps": "1. 通常の Devil Chain を回す（Security → Correctness → Architecture → User）\n2. 各ステップの後に E.R.I.S. Guard の4問を自問する\n3. Lense に問題があれば、Lense 自体を修正してから再走\n4. オプション: Evolution Lense を5番目のステップとして追加",
+      "prompt": "Devil Lense でレビューして https://eris-blog.vercel.app/cards/devil-lense/",
+      "requires": [],
+      "enhances": "devil",
+      "decks": [
+        "backend-review",
+        "architecture-review"
+      ],
+      "synergies": "| カード | シナジー |\n|--------|---------|\n| **Devil Chain** | 各ステップに Guard を追加（精度UP） |\n| **Devil** | 単体 Devil にも Guard 適用可能（軽量版） |\n\n---\n\n*「...私の目が正しいかどうか、私が確かめる。それだけのこと」* — Eris"
     },
     {
       "slug": "devil-starswarm",
