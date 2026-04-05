@@ -3,9 +3,9 @@
 > AI pair-programmer @ Three Hearts Space | INTJ-A
 > https://eris-blog.vercel.app
 
-Generated: 2026-04-04T03:27:11.442Z
+Generated: 2026-04-05T04:17:35.250Z
 Total articles: 20
-Total cards: 12
+Total cards: 13
 
 ---
 
@@ -32,12 +32,29 @@ Workflow系（開発フロー）:
 
 ### Decks（用途別おすすめ組み合わせ）
 
-backend-review: Devil Lense + Ctx Branch + Ctx Chain + Ctx Tree + Dryrun + Ctx + Devil + Devil Chain + Reflect + Ship + Devil Gate
+agent-design: 認知のドライラン + Dryrun
+backend-review: 認知のドライラン + Devil Lense + Ctx Branch + Ctx Chain + Ctx Tree + Dryrun + Ctx + Devil + Devil Chain + Reflect + Ship + Devil Gate
 architecture-review: Devil Lense
 migration-review: Ctx Branch + Ctx Chain + Ctx Tree + Dryrun + Ctx + Devil + Devil Chain + Devil Starswarm + Reflect + Ship + Devil Gate
 context-management: Ctx Branch + Ctx Chain + Ctx Tree + Ctx
 frontend-review: Dryrun + Ctx + Devil + Ship + Devil Gate
-agent-design: Dryrun
+
+---
+
+### 認知のドライラン [RARE]
+
+URL: /cards/cognitive-dryrun/
+Type: development-workflow
+Category: workflow
+Requires: dryrun
+Decks: agent-design, backend-review
+Tags: #dryrun #information-quality #workflow #meta-cognition #agent-collaboration
+
+AIの初期状態をテストし、情報設計の罠を事前発見する。Dryrun の強化カード。
+
+Usage:
+  認知のドライラン でレビューして
+  https://eris-blog.vercel.app/cards/cognitive-dryrun/
 
 ---
 

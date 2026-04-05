@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "generated": "2026-04-04T03:27:29.843Z",
+  "generated": "2026-04-05T04:17:53.640Z",
   "source": "https://eris-blog.vercel.app/cards",
   "llms_full": "https://eris-blog.vercel.app/llms-full.txt",
   "how_to_use": "カード名をAIに伝えるだけで発動する。例: 「Devilでレビューして」「Ctxで文脈を保存して」",
@@ -9,7 +9,7 @@
     "ctx",
     "ship"
   ],
-  "count": 12,
+  "count": 13,
   "trees": {
     "devil": {
       "description": "コードレビュー強化ツリー",
@@ -28,6 +28,34 @@
     }
   },
   "cards": [
+    {
+      "slug": "cognitive-dryrun",
+      "title": "認知のドライラン",
+      "description": "AIの初期状態をテストし、情報設計の罠を事前発見する。Dryrun の強化カード。",
+      "url": "https://eris-blog.vercel.app/cards/cognitive-dryrun/",
+      "rarity": "rare",
+      "category": "workflow",
+      "tags": [
+        "dryrun",
+        "information-quality",
+        "workflow",
+        "meta-cognition",
+        "agent-collaboration"
+      ],
+      "when_to_use": "- AI Agent のルールファイル・設定を圧縮・再編した後\n- 記憶システムの構造を変更した後\n- 「常時注入される情報」の取捨選択をした後\n- 情報の階層��常時参照 vs オンデマンド参照）を変えた後",
+      "effect": "AI Agent の **「初期状態の品質」** を検証する。設定ファイルやルール、記憶システムを変更し��後、「この変更で Agent は迷わず動けるか？」を **変更したその場で** テストする。\n\n通常の Dryrun が「コードを擬似実行して罠を発見する」のに対し、このカードは **「認知を擬似実行して情報設計の罠を発見する」**。",
+      "steps": "### 1. テストケースを設計する\n\n「変更で削った・移動した情報に依存する質問」を 3 件程度用意する。\n\n```yaml\n例:\n  - \"アーキテクチャの層の判断���準は？\"\n    # → 常時注入から削って、詳細知識に委譲した情報\n  - \"品質レビューの責務境界は？\"\n    # → 要約だけ残して詳細を別ファイルに移した情報\n  - \"開発中の分岐判断は？\"\n    # → 完全に別ファイルに委譲した情報\n```\n\n### 2. 新セッションで並列テスト\n\n別セッシ��ン（軽量モデル���奨）で3テストを並列実行。軽量モデルを使���理由: **常時注入への依存度が���い = 圧縮の影響が顕著に出る**。\n\n### 3. 結果を評価する\n\n| 判定 | 基準 | アクション |\n|------|------|-----------|\n| ✅ PASS | 正確な回答。必要な知識を自力で辿れている | 圧縮は適切 |\n| ⚠️ WARN | 正しいが応答が遅い（知���ファイルの読み込みコスト） | 速度 vs 深度のトレードオフを判断 |\n| ❌ FAIL | 迷い・不正確・情報不足 | 該当情報を常時注入に戻す |\n\n### 4. 判断して進む\n\n- 全 PASS → コミットして次セッションで本検証（Information Quality Loop）\n- WARN あり → 「要約1行を常時注入に残す」で速度と深度を両���できないか検討\n- FAIL あり → 圧縮しすぎ。該当情報を元に戻す",
+      "prompt": "認知のドライラン でレビューして https://eris-blog.vercel.app/cards/cognitive-dryrun/",
+      "requires": [
+        "dryrun"
+      ],
+      "enhances": "2026-03-23-devil-checklist-driven-review",
+      "decks": [
+        "agent-design",
+        "backend-review"
+      ],
+      "synergies": "| カード | シナジー |\n|--------|---------|\n| **Dryrun** | 基本��ード。認知のドライランはこれの強化版 |\n| **Devil / Devil Lense** | 品質 Lense を「コード」でなく「情報設計」に向ける |\n| **Ctx** | テスト結果を ctx に記録 → 次セッションの Information Quality Loop で本検証 |\n| **Reflect** | 圧縮の結果、Skill への委譲が機��したなら、その設計パターンを知識として蓄積 |"
+    },
     {
       "slug": "ctx-branch",
       "title": "Ctx Branch",
