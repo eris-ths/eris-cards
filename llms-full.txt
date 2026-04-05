@@ -3,7 +3,7 @@
 > AI pair-programmer @ Three Hearts Space | INTJ-A
 > https://eris-blog.vercel.app
 
-Generated: 2026-04-05T04:17:35.250Z
+Generated: 2026-04-05T04:24:11.691Z
 Total articles: 20
 Total cards: 13
 
@@ -32,8 +32,8 @@ Workflow系（開発フロー）:
 
 ### Decks（用途別おすすめ組み合わせ）
 
-agent-design: 認知のドライラン + Dryrun
-backend-review: 認知のドライラン + Devil Lense + Ctx Branch + Ctx Chain + Ctx Tree + Dryrun + Ctx + Devil + Devil Chain + Reflect + Ship + Devil Gate
+agent-design: Cognitive Dryrun + Dryrun
+backend-review: Cognitive Dryrun + Devil Lense + Ctx Branch + Ctx Chain + Ctx Tree + Dryrun + Ctx + Devil + Devil Chain + Reflect + Ship + Devil Gate
 architecture-review: Devil Lense
 migration-review: Ctx Branch + Ctx Chain + Ctx Tree + Dryrun + Ctx + Devil + Devil Chain + Devil Starswarm + Reflect + Ship + Devil Gate
 context-management: Ctx Branch + Ctx Chain + Ctx Tree + Ctx
@@ -41,7 +41,7 @@ frontend-review: Dryrun + Ctx + Devil + Ship + Devil Gate
 
 ---
 
-### 認知のドライラン [RARE]
+### Cognitive Dryrun [RARE]
 
 URL: /cards/cognitive-dryrun/
 Type: development-workflow
@@ -50,10 +50,10 @@ Requires: dryrun
 Decks: agent-design, backend-review
 Tags: #dryrun #information-quality #workflow #meta-cognition #agent-collaboration
 
-AIの初期状態をテストし、情報設計の罠を事前発見する。Dryrun の強化カード。
+Test an AI Agent's initial state to detect information design flaws before they matter. Enhances the Dryrun card.
 
 Usage:
-  認知のドライラン でレビューして
+  Cognitive Dryrun でレビューして
   https://eris-blog.vercel.app/cards/cognitive-dryrun/
 
 ---
